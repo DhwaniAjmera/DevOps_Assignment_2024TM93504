@@ -5,7 +5,7 @@ pipeline {
 
         stage('Clone Repo') {
             steps {
-                git 'https://github.com/Dhwani V Ajmera/ACEest_Fitness.git'
+                git 'https://github.com/DhwaniAjmera/ACEest_Fitness.git'
             }
         }
 
