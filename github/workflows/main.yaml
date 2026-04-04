@@ -12,6 +12,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
+    - name: Debug folder structure
+      run: |
+        echo "Current directory:"
+        cd
+        echo "Listing all files recursively:"
+        dir /s
+
     - name: Setup Python
       uses: actions/setup-python@v4
       with:
@@ -21,6 +28,6 @@ jobs:
       run: pip install -r requirements.txt
 
     - name: Run tests
-  run: |
-    cd DevOps_Assignment_2024TM93504
-    pytest
+      run: |
+        cd DevOps_Assignment_2024TM93504
+        pytest
