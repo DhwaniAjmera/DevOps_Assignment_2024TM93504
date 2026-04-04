@@ -15,7 +15,7 @@ def home():
 def get_members():
     return jsonify(members)
 
-@app.route('/members', methods=['POST'])
+@app.route('/members', methods=['POST']) 
 def add_member():
     data = request.get_json()
     new_member = {

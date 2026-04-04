@@ -16,7 +16,7 @@ def test_get_members(client):
     assert response.status_code == 200
     data = response.get_json()
     assert type(data) == list
-
+ 
 def test_add_member(client):
     new_member = {"name": "Alice", "membership": "Platinum"}
     response = client.post('/members', json=new_member)
