@@ -3,27 +3,21 @@ pipeline {
 
     stages {
 
-        stage('Clone Repo') {
-            steps {
-                git 'https://github.com/DhwaniAjmera/ACEest_Fitness.git'
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
-                sh 'python3 -m pip install -r requirements.txt'
+                bat 'pip install -r requirements.txt'
             }
         }
 
-        stage('Run Tests') { 
+        stage('Run Tests') {
             steps {
-                sh 'python3 -m pytest'
+                bat 'pytest'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t aceest_fitness:latest .'
+                bat 'docker build -t aceest-fitness .'
             }
         }
     }
