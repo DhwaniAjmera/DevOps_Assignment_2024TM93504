@@ -10,5 +10,5 @@ It demonstrates a full **DevOps CI/CD pipeline** using GitHub Actions, Jenkins, 
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/<your-username>/ACEest_Fitness.git
+git clone https://github.com/<Dhwani V Ajmera>/ACEest_Fitness.git
 cd ACEest_Fitness
