@@ -3,31 +3,40 @@ pipeline {
 
     stages {
 
+        stage('Clone Repo') {
+            steps {
+                git 'https://github.com/DhwaniAjmera/DevOps_Assignment_2024TM93504.git'
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
-                bat 'python -m pip install -r requirements.txt'
+                sh 'pip install -r requirements.txt'
             }
         }
 
         stage('Run Tests') {
             steps {
-                bat 'python -m pytest'
+                sh 'echo "Run your tests here"'
             }
         }
 
         stage('Build Docker Image') {
+            when {
+                environment name: 'USE_DOCKER', value: 'true'
+            }
             steps {
-        echo 'Docker build skipped (Docker not installed locally)'
-    }
+                sh 'docker build -t devops-app .'
+            }
         }
-    }
 
-    post {
-        success {
-            echo 'Build Successful ✅'
-        }
-        failure {
-            echo 'Build Failed ❌'
+        stage('Run Docker Container') {
+            when {
+                environment name: 'USE_DOCKER', value: 'true'
+            }
+            steps {
+                sh 'docker run -d -p 5000:5000 devops-app'
+            }
         }
     }
 }

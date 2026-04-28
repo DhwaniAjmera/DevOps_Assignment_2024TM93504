@@ -12,3 +12,26 @@ It demonstrates a full **DevOps CI/CD pipeline** using GitHub Actions, Jenkins, 
 ```bash
 git clone https://github.com/<Dhwani V Ajmera>/ACEest_Fitness.git
 cd ACEest_Fitness 
+
+# DevOps Assignment
+
+## Objective
+Explain what assignment expects
+
+## Steps Performed
+- Git init
+- Branching
+- Merging
+- Version control
+
+## Project Structure
+(Explain folders)
+
+## How to Run
+python app/app.py
+
+## CI/CD Setup
+Explain GitHub Actions / Jenkins
+
+## Conclusion
+DevOps learnings

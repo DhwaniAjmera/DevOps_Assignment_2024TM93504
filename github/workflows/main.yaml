@@ -31,3 +31,6 @@ jobs:
       run: |
         cd DevOps_Assignment_2024TM93504
         pytest
+        
+    - name: Build Docker image
+      run: docker build -t DhwaniAjmera/aceest-fitness:latest .
