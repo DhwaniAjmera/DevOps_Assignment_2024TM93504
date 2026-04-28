@@ -10,7 +10,7 @@ It demonstrates a full **DevOps CI/CD pipeline** using GitHub Actions, Jenkins, 
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/<Dhwani V Ajmera>/ACEest_Fitness.git
+git clone https://github.com/DhwaniAjmera/DevOps_Assignment_2024TM93504.git
 cd ACEest_Fitness 
 
 # DevOps Assignment
@@ -25,7 +25,7 @@ Explain what assignment expects
 - Version control
 
 ## Project Structure
-(Explain folders)
+SonarQube executed locally using Windows batch script
 
 ## How to Run
 python app/app.py

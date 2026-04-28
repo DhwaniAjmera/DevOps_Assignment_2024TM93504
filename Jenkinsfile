@@ -3,40 +3,43 @@ pipeline {
 
     stages {
 
-        stage('Clone Repo') {
-            steps {
-                git 'https://github.com/DhwaniAjmera/DevOps_Assignment_2024TM93504.git'
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
-                sh 'pip install -r requirements.txt'
+                bat 'python -m pip install -r requirements.txt'
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'echo "Run your tests here"'
+                bat 'python -m pytest'
             }
         }
 
-        stage('Build Docker Image') {
-            when {
-                environment name: 'USE_DOCKER', value: 'true'
-            }
+        stage('Code Quality - Flake8') {
             steps {
-                sh 'docker build -t devops-app .'
+                bat 'flake8 .'
             }
         }
 
-        stage('Run Docker Container') {
-            when {
-                environment name: 'USE_DOCKER', value: 'true'
-            }
+        stage('SonarQube Analysis') {
             steps {
-                sh 'docker run -d -p 5000:5000 devops-app'
+                echo "SonarQube integration placeholder"
             }
+        }
+
+        stage('Build (Skipped Docker)') {
+            steps {
+                echo "Docker build skipped (office restriction)"
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build Successful ✅'
+        }
+        failure {
+            echo 'Build Failed ❌'
         }
     }
 }
