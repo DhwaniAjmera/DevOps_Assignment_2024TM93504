@@ -3,6 +3,12 @@ pipeline {
 
     stages {
 
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
                 bat 'python -m pip install -r requirements.txt'
@@ -15,21 +21,22 @@ pipeline {
             }
         }
 
-        stage('Code Quality - Flake8') {
-            steps {
-                bat 'flake8 .'
-            }
-        }
-
         stage('SonarQube Analysis') {
             steps {
-                echo "SonarQube integration placeholder"
+                bat 'sonar-scanner'
             }
         }
 
-        stage('Build (Skipped Docker)') {
+        stage('Build Docker Image') {
             steps {
-                echo "Docker build skipped (office restriction)"
+                bat 'docker build -t aceest-fitness:latest .'
+            }
+        }
+
+        stage('Push to DockerHub') {
+            steps {
+                bat 'docker tag aceest-fitness DhwaniAjmera/aceest-fitness'
+                bat 'docker push DhwaniAjmera/aceest-fitness'
             }
         }
     }
