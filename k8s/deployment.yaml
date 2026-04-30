@@ -13,8 +13,7 @@ spec:
         app: aceest
     spec:
       containers:
-        - name: aceest-container
-          image: dhwaniajmera/aceest-fitness:latest
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 5000
+      - name: aceest-container
+        image: dhwaniajmera/aceest-fitness:v1
+        ports:
+        - containerPort: 5000
