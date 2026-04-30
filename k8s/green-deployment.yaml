@@ -15,7 +15,7 @@ spec:
         version: green
     spec:
       containers:
-      - name: app
-        image: dhwaniajmera/aceest-fitness:latest
+      - name: aceest-container
+        image: dhwaniajmera/aceest-fitness:v2
         ports:
         - containerPort: 5000
