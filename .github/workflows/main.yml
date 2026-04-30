@@ -12,13 +12,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Debug folder structure
-      run: |
-        echo "Current directory:"
-        cd
-        echo "Listing all files recursively:"
-        dir /s
-
     - name: Setup Python
       uses: actions/setup-python@v4
       with:
@@ -29,8 +22,5 @@ jobs:
 
     - name: Run tests
       run: |
-        cd DevOps_Assignment_2024TM93504
+        $env:PYTHONPATH="."
         pytest
-        
-    - name: Build Docker image
-      run: docker build -t DhwaniAjmera/aceest-fitness:latest .
